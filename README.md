@@ -1,0 +1,1 @@
+Some antiviruses may detect the operating system as a virus. If you encounter such a problem, try closing your antivirus and reinstalling it. It is a very safe operating system. There is no virus in it.
