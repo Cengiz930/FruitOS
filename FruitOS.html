@@ -70,6 +70,36 @@
       color: #666;
       margin-bottom: 30px;
     }
+    .warning {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      border-radius: 6px;
+      padding: 15px 20px;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    }
+    .antivirus-guides {
+      max-width: 800px;
+      margin: 20px auto 40px;
+      background-color: #e8f0fe;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: left;
+      color: #202124;
+      box-shadow: 0 0 8px rgba(66, 133, 244, 0.3);
+    }
+    .antivirus-guides h3 {
+      color: #1a73e8;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .antivirus-guides ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
     .footer {
       margin-top: 60px;
       padding: 20px 0;
@@ -120,6 +150,62 @@
     <li>Display: VGA graphics (256 colors)</li>
     <li>Input: Keyboard and mouse</li>
   </ul>
+
+  <div class="warning">
+    <strong>Note:</strong> Some antivirus programs may show false positive alerts when downloading FruitOS.<br>
+    This is common for new software and does not mean it's dangerous.<br>
+    Please read below for how to disable and re-enable your antivirus temporarily.
+  </div>
+
+  <div class="antivirus-guides">
+    <h2>How to Temporarily Disable and Re-enable Common Antivirus Programs</h2>
+
+    <h3>Windows Defender (Microsoft Defender)</h3>
+    <ul>
+      <li>Open <strong>Windows Security</strong> from the Start menu.</li>
+      <li>Go to <em>Virus & threat protection</em> → <em>Manage settings</em>.</li>
+      <li>Turn off <em>Real-time protection</em>.</li>
+      <li>It will turn back on automatically or after a restart.</li>
+    </ul>
+
+    <h3>Avast Antivirus</h3>
+    <ul>
+      <li>Right-click the Avast icon in the system tray.</li>
+      <li>Select <em>Avast shields control</em>.</li>
+      <li>Choose to disable for 10 min, 1 hour, or until restart.</li>
+      <li>Re-enable by selecting <em>Enable all shields</em>.</li>
+    </ul>
+
+    <h3>AVG Antivirus</h3>
+    <ul>
+      <li>Right-click the AVG icon.</li>
+      <li>Click <em>Temporarily disable protection</em>.</li>
+      <li>Select duration and confirm.</li>
+      <li>Re-enable from AVG dashboard.</li>
+    </ul>
+
+    <h3>Norton Antivirus</h3>
+    <ul>
+      <li>Open Norton → Go to <em>Settings</em>.</li>
+      <li>Disable <em>Auto-Protect</em> temporarily.</li>
+      <li>Turn it back on later from the same menu.</li>
+    </ul>
+
+    <h3>McAfee Antivirus</h3>
+    <ul>
+      <li>Open McAfee Security Center.</li>
+      <li>Go to <em>Real-Time Scanning</em> → <em>Turn Off</em>.</li>
+      <li>Select time, confirm. Enable again manually.</li>
+    </ul>
+
+    <h3>Bitdefender</h3>
+    <ul>
+      <li>Open Bitdefender dashboard.</li>
+      <li>Go to <em>Protection</em> panel.</li>
+      <li>Disable <em>Shield</em> or <em>Autopilot</em> temporarily.</li>
+      <li>Turn it back on via the same panel.</li>
+    </ul>
+  </div>
 
   <h2>📥 Download FruitOS</h2>
   <a href="https://github.com/Cengiz930/FruitOS/archive/refs/heads/main.zip" download>
