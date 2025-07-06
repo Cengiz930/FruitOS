@@ -2,269 +2,427 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Frutech Systems - FruitOS & Frutech AI</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      color: #222;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 30px 20px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 2px;
     }
     .logo-container {
+      margin: 20px auto;
       display: flex;
       justify-content: center;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 40px;
+      gap: 40px;
       flex-wrap: wrap;
     }
     .logo-container img {
-      max-height: 100px;
-      width: auto;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      max-height: 90px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
     }
-    h1 {
-      color: #4CAF50;
-      margin-bottom: 10px;
+    main {
+      max-width: 900px;
+      margin: 30px auto 60px auto;
+      padding: 0 15px;
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 50px;
     }
     h2 {
-      margin-top: 40px;
+      border-bottom: 3px solid #2e7d32;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      color: #2e7d32;
+      font-size: 2rem;
+    }
+    h3 {
+      color: #2e7d32;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p, ul {
+      font-size: 1.1rem;
       color: #333;
     }
-    p {
-      max-width: 800px;
-      margin: 10px auto;
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: left;
-    }
     ul {
-      max-width: 600px;
-      margin: 10px auto 40px;
-      font-size: 16px;
-      line-height: 1.6;
       padding-left: 20px;
-      text-align: left;
+      list-style-type: disc;
+    }
+    ul li {
+      margin-bottom: 10px;
     }
     button {
-      padding: 15px 30px;
-      font-size: 18px;
-      cursor: pointer;
-      background-color: #4CAF50;
+      background-color: #388e3c;
       color: white;
       border: none;
+      padding: 14px 26px;
+      font-size: 1.1rem;
       border-radius: 8px;
+      cursor: pointer;
+      margin-top: 12px;
       transition: background-color 0.3s ease;
-      margin-bottom: 10px;
-      display: inline-block;
+      box-shadow: 0 4px 6px rgba(56,142,60,0.4);
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #2e7d32;
     }
     .warning {
-      max-width: 600px;
-      margin: 0 auto 30px;
       background-color: #fff3cd;
+      border: 1.5px solid #ffeeba;
+      padding: 20px;
+      border-radius: 10px;
       color: #856404;
-      border: 1px solid #ffeeba;
-      border-radius: 6px;
-      padding: 15px 20px;
-      font-size: 16px;
-      box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+      font-weight: 600;
+      margin-top: 30px;
+      line-height: 1.5;
     }
     .antivirus-guides {
-      max-width: 800px;
-      margin: 20px auto 40px;
-      background-color: #e8f0fe;
-      border-radius: 8px;
+      background-color: #e8f5e9;
+      border-radius: 12px;
       padding: 20px;
-      text-align: left;
-      color: #202124;
-      box-shadow: 0 0 8px rgba(66, 133, 244, 0.3);
+      box-shadow: 0 0 15px rgba(46,125,50,0.3);
+      margin-bottom: 60px;
     }
     .antivirus-guides h3 {
-      color: #1a73e8;
       margin-top: 20px;
-      margin-bottom: 8px;
+      color: #2e7d32;
+      font-size: 1.3rem;
     }
-    .footer {
-      margin-top: 60px;
-      padding: 20px 0;
-      font-size: 15px;
-      color: #777;
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+    .team-member {
+      background-color: #f1f8e9;
+      padding: 18px 22px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(46,125,50,0.5);
+    }
+    .team-member strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+      color: #2e7d32;
+    }
+    .team-member small {
+      font-style: italic;
+      color: #555;
+    }
+    footer {
+      background-color: #2e7d32;
+      color: white;
       text-align: center;
-      border-top: 1px solid #ccc;
-      background-color: #f0f0f0;
+      padding: 18px 10px;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      button {
+        width: 100%;
+        box-sizing: border-box;
+      }
     }
   </style>
 </head>
 <body>
 
+<header>
+  <h1>🍇 Frutech Systems 🍉</h1>
   <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/Cengiz930/FruitOS/fbfe611da00d4991ce9f9288363798791c97d1a3/Frutech%20Systems%20Logo.png" alt="Frutech Systems Logo" />
+    <img src="https://raw.githubusercontent.com/Cengiz930/FruitOS/fbfe611da00d4991ce9f9288363798791c97d1a3/Frutech%20Systems%20Logo.png" alt="Frutech Logo" />
     <img src="https://raw.githubusercontent.com/Cengiz930/FruitOS/fbfe611da00d4991ce9f9288363798791c97d1a3/FruitOS%20Logo.png" alt="FruitOS Logo" />
   </div>
+</header>
 
-  <h1>Frutech Systems</h1>
+<main>
 
-  <h2>🍎 Introducing FruitOS — The Minimalist Python-Powered Operating System 🍏</h2>
-  <p>Welcome to FruitOS, a sleek and lightweight operating system crafted entirely in Python! 🚀 Designed with simplicity and efficiency as its core principles, FruitOS offers a clean, minimal environment perfect for learning, development, and experimentation. 🧑‍💻✨</p>
+  <!-- FruitOS 1.0 -->
+  <section>
+    <h2>🍎 Introducing FruitOS — The Minimalist Python-Powered Operating System 🍏</h2>
+    <p>Welcome to FruitOS, a sleek and lightweight operating system crafted entirely in Python! 🚀 Designed with simplicity and efficiency as its core principles, FruitOS offers a clean, minimal environment perfect for learning, development, and experimentation. 🧑‍💻✨</p>
+    
+    <h3>🌟 Key Features of FruitOS:</h3>
+    <ul>
+      <li>🐍 Python-Based: Built from the ground up using Python, accessible for all developers.</li>
+      <li>⚡ Lightweight & Fast: Minimal footprint for faster boot and efficient performance.</li>
+      <li>🎯 Focus on Essentials: No bloat, just core functionalities.</li>
+      <li>🛠️ Ideal for Education: Perfect for students and hobbyists diving into OS concepts.</li>
+      <li>🔧 Customizable & Expandable: Easy to adapt for your own projects.</li>
+      <li>🌐 User-Friendly Interface: Clean UI designed for ease of use.</li>
+    </ul>
 
-  <h2>🌟 Key Features of FruitOS:</h2>
-  <ul>
-    <li>🐍 Python-Based: Built from the ground up using Python.</li>
-    <li>⚡ Lightweight & Fast</li>
-    <li>🎯 Focus on Essentials</li>
-    <li>🛠️ Ideal for Education</li>
-    <li>🔧 Customizable</li>
-    <li>🌐 User-Friendly Interface</li>
-  </ul>
+    <h3>FruitOS 1.0 System Requirements</h3>
+    <strong>Minimum System Requirements:</strong>
+    <ul>
+      <li>CPU: 8086/8088 compatible processor</li>
+      <li>RAM: 256 KB</li>
+      <li>Storage: 7 MB free disk space</li>
+      <li>Display: CGA or compatible graphics (4 colors)</li>
+      <li>Input: Keyboard</li>
+    </ul>
+    <strong>Recommended System Requirements:</strong>
+    <ul>
+      <li>CPU: Intel 80286 or better</li>
+      <li>RAM: 640 KB or more</li>
+      <li>Storage: 10 MB free disk space</li>
+      <li>Display: VGA graphics (256 colors)</li>
+      <li>Input: Keyboard and mouse</li>
+    </ul>
+    
+    <a href="https://github.com/Cengiz930/FruitOS/archive/refs/heads/main.zip" download>
+      <button>Download FruitOS 1.0</button>
+    </a>
+  </section>
 
-  <h2>🖥️ FruitOS 1.0 – System Requirements</h2>
-  <strong>Minimum:</strong>
-  <ul>
-    <li>CPU: 8086/8088 compatible processor</li>
-    <li>RAM: 256 KB</li>
-    <li>Storage: 7 MB free disk space</li>
-    <li>Display: CGA or compatible graphics (4 colors)</li>
-    <li>Input: Keyboard</li>
-  </ul>
-  <strong>Recommended:</strong>
-  <ul>
-    <li>CPU: Intel 80286 or better</li>
-    <li>RAM: 640 KB</li>
-    <li>Storage: 10 MB free disk space</li>
-    <li>Display: VGA graphics (256 colors)</li>
-    <li>Input: Keyboard and mouse</li>
-  </ul>
+  <!-- FruitOS 2.0 -->
+  <section>
+    <h2>🍏 FruitOS 2.0 — New Features & System Requirements</h2>
+    
+    <h3>FruitOS 2.0 - What's New?</h3>
+    <ul>
+      <li><code>time</code> → Displays current time</li>
+      <li><code>calc</code> → Mini calculator</li>
+      <li><code>notepad</code> → Write and show notes</li>
+      <li><code>shutdown</code> → Simulates shutdown</li>
+      <li><code>version</code> → Shows version info</li>
+    </ul>
+    
+    <h3>FruitOS 2.0 System Requirements</h3>
+    <strong>Minimum System Requirements:</strong>
+    <ul>
+      <li>Processor: Intel 80486 or compatible</li>
+      <li>Memory: 16 MB RAM</li>
+      <li>Storage: 15 MB of available disk space</li>
+      <li>Display: Monochrome or basic color (CGA, 320x200 or higher)</li>
+      <li>Input Device: Standard keyboard</li>
+    </ul>
+    <strong>Recommended System Requirements:</strong>
+    <ul>
+      <li>Processor: Intel Pentium (90 MHz or higher)</li>
+      <li>Memory: 32 MB RAM or more</li>
+      <li>Storage: 20 MB of available disk space</li>
+      <li>Display: VGA-compatible display (640x480 resolution or higher)</li>
+      <li>Input Device: Keyboard and mouse (optional)</li>
+    </ul>
+    
+    <a href="https://github.com/Cengiz930/FruitOS-2.0/archive/refs/heads/main.zip" download>
+      <button>Download FruitOS 2.0</button>
+    </a>
+  </section>
 
-  <a href="https://github.com/Cengiz930/FruitOS/archive/refs/heads/main.zip" download>
-    <button>Download FruitOS 1.0 (ZIP)</button>
-  </a>
+  <!-- FruitOS 3.0 -->
+  <section>
+    <h2>🍏 FruitOS 3.0 — Latest Features & System Requirements</h2>
+    
+    <h3>FruitOS 3.0 - What's New?</h3>
+    <ul>
+      <li>⏰ Alarm system: Set alarms using <code>alarm &lt;HH:MM&gt;</code>. System notifies you when alarm triggers.</li>
+      <li>📝 Notepad app: Write notes saved in <code>note.txt</code>.</li>
+      <li>➗ Calculator: Simple calculator using <code>calc</code> to safely evaluate math expressions.</li>
+      <li>⚙️ Prompt customization: Change command prompt with <code>setprompt &lt;new_prompt&gt;</code>.</li>
+      <li>📂 File system commands:
+        <ul>
+          <li><code>ls</code> → List files and directories.</li>
+          <li><code>cd &lt;dir&gt;</code> → Change directory.</li>
+          <li><code>mkdir &lt;dir&gt;</code> → Create directory.</li>
+          <li><code>rm &lt;file/dir&gt;</code> → Delete file or directory.</li>
+        </ul>
+      </li>
+      <li>👥 User management:
+        <ul>
+          <li><code>useradd &lt;username&gt; &lt;password&gt;</code> → Add new user.</li>
+          <li><code>login &lt;username&gt; &lt;password&gt;</code> → Login as user.</li>
+          <li><code>logout</code> → Log out current user.</li>
+        </ul>
+      </li>
+      <li>🐍 Run external Python scripts: <code>runscript &lt;file&gt;</code>.</li>
+      <li>🌐 Networking:
+        <ul>
+          <li><code>ping &lt;host&gt;</code> → Ping a host.</li>
+          <li><code>connect &lt;host&gt; &lt;port&gt;</code> → Connect to TCP port.</li>
+        </ul>
+      </li>
+      <li>🛑 Graceful shutdown & exit: <code>shutdown</code> or <code>exit</code> exits cleanly.</li>
+      <li>ℹ️ Version & about info: <code>version</code> and <code>about</code> commands.</li>
+      <li>🕒 Show current time: <code>time</code> command.</li>
+      <li>⚙️ Multi-threaded alarm checker running in background.</li>
+    </ul>
 
-  <h2>🍇 FruitOS 2.0 — What’s New?</h2>
-  <ul>
-    <li>time → Displays current time</li>
-    <li>calc → Mini calculator</li>
-    <li>notepad → Write and display notes</li>
-    <li>shutdown → Simulates shutdown</li>
-    <li>version → Displays version info</li>
-  </ul>
+    <h3>FruitOS 3.0 System Requirements</h3>
+    <strong>Minimum System Requirements:</strong>
+    <ul>
+      <li>Processor: Intel Pentium or equivalent</li>
+      <li>Memory: 32 MB RAM</li>
+      <li>Storage: 25 MB of available disk space</li>
+      <li>Display: 640×480 resolution with basic color support</li>
+      <li>Input Device: Keyboard</li>
+    </ul>
+    <strong>Recommended System Requirements:</strong>
+    <ul>
+      <li>Processor: Intel Pentium III or better</li>
+      <li>Memory: 64 MB RAM or more</li>
+      <li>Storage: 35 MB of available disk space</li>
+      <li>Display: VGA-compatible display (800×600 resolution or higher)</li>
+      <li>Input Device: Keyboard and mouse (optional)</li>
+    </ul>
+    
+    <a href="https://github.com/Cengiz930/FruitOS-3.0/archive/refs/heads/main.zip" download>
+      <button>Download FruitOS 3.0</button>
+    </a>
+  </section>
 
-  <h2>🖥️ FruitOS 2.0 – System Requirements</h2>
-  <strong>Minimum:</strong>
-  <ul>
-    <li>Processor: Intel 80486 or compatible</li>
-    <li>Memory: 16 MB RAM</li>
-    <li>Storage: 15 MB disk space</li>
-    <li>Display: CGA, 320x200 or higher</li>
-    <li>Input: Keyboard</li>
-  </ul>
-  <strong>Recommended:</strong>
-  <ul>
-    <li>Processor: Intel Pentium (90 MHz or higher)</li>
-    <li>Memory: 32 MB RAM or more</li>
-    <li>Storage: 20 MB disk space</li>
-    <li>Display: VGA-compatible (640x480 or higher)</li>
-    <li>Input: Keyboard and mouse (optional)</li>
-  </ul>
+  <!-- Frutech AI -->
+  <section>
+    <h2>🤖 Frutech AI - Your Friendly Python Chatbot</h2>
+    <p>Frutech AI is a simple yet powerful chatbot built with Python. Designed for fun and easy interactions, it understands basic English inputs and responds with friendly messages.</p>
+    
+    <h3>💡 Why choose Frutech AI?</h3>
+    <ul>
+      <li>🗨️ Responds to basic greetings, questions, and farewells</li>
+      <li>⚡ Runs fast with no external dependencies</li>
+      <li>🔑 Keyword-based logic that’s easy to customize</li>
+      <li>🤖 A great starting point for beginner AI projects</li>
+      <li>🚀 Lightweight and ready to extend with advanced AI features</li>
+    </ul>
+    
+    <h3>💻 Frutech AI – Features</h3>
+    <ul>
+      <li>👉 Simple chatbot logic for greetings and common phrases.</li>
+      <li>👉 Keyword-based responses tailored to input.</li>
+      <li>👉 Continuous chat loop until user says goodbye.</li>
+      <li>👉 Friendly, human-like messaging.</li>
+      <li>👉 Error handling for unrecognized inputs.</li>
+      <li>👉 Pure Python code, no external libraries needed.</li>
+      <li>👉 Easy to extend and customize with more keywords or AI tools.</li>
+    </ul>
+    
+    <a href="https://github.com/Cengiz930/FrutechAI/archive/refs/heads/main.zip" download>
+      <button>Download Frutech AI</button>
+    </a>
+  </section>
 
-  <a href="https://github.com/Cengiz930/FruitOS-2.0/archive/refs/heads/main.zip" download>
-    <button>Download FruitOS 2.0 (ZIP)</button>
-  </a>
+  <!-- Antivirus Warning & Guide -->
+  <section class="warning">
+    <strong>⚠️ Important Antivirus Notice:</strong><br />
+    Due to the low-level nature and unsigned status of FruitOS and Frutech AI files, some antivirus programs may falsely flag them as suspicious or malicious.  
+    This is a common false positive and does not mean the software is harmful.
+  </section>
 
-  <h2>🍉 FruitOS 3.0 — What's New?</h2>
-  <ul>
-    <li>Alarm system: alarm HH:MM sets alarms</li>
-    <li>Notepad app: write notes to note.txt</li>
-    <li>Calculator: calc evaluates math</li>
-    <li>Prompt customization: setprompt &lt;new_prompt&gt;</li>
-    <li>File system commands: ls, cd, mkdir, rm</li>
-    <li>User management: useradd, login, logout</li>
-    <li>Run external scripts: runscript &lt;file&gt;</li>
-    <li>Networking: ping, connect</li>
-    <li>shutdown / exit: clean exit</li>
-    <li>version / about: info commands</li>
-    <li>time: shows date & time</li>
-    <li>Multi-threaded alarm checker</li>
-  </ul>
+  <section class="antivirus-guides">
+    <h2>🛡 How to Disable and Enable Antivirus Temporarily</h2>
 
-  <h2>🖥️ FruitOS 3.0 – System Requirements</h2>
-  <strong>Minimum:</strong>
-  <ul>
-    <li>Processor: Intel Pentium or equivalent</li>
-    <li>Memory: 32 MB RAM</li>
-    <li>Storage: 25 MB disk space</li>
-    <li>Display: 640×480 resolution</li>
-    <li>Input: Keyboard</li>
-  </ul>
-  <strong>Recommended:</strong>
-  <ul>
-    <li>Processor: Intel Pentium III or better</li>
-    <li>Memory: 64 MB RAM or more</li>
-    <li>Storage: 35 MB disk space</li>
-    <li>Display: VGA-compatible (800×600 or higher)</li>
-    <li>Input: Keyboard and mouse (optional)</li>
-  </ul>
-
-  <a href="https://github.com/Cengiz930/FruitOS-3.0/archive/refs/heads/main.zip" download>
-    <button>Download FruitOS 3.0 (ZIP)</button>
-  </a>
-
-  <h2>🌟 Frutech AI - Your Friendly Python Chatbot</h2>
-  <p>Frutech AI is a simple yet powerful chatbot built with Python. Designed for fun and easy interactions, Frutech AI can understand basic English inputs and respond with friendly messages.</p>
-
-  <ul>
-    <li>🗨️ Responds to basic greetings, questions, and farewells</li>
-    <li>⚡ Runs fast with no external dependencies</li>
-    <li>🔑 Keyword-based logic that’s easy to customize</li>
-    <li>🤖 A great starting point for beginner AI projects</li>
-    <li>🚀 Lightweight and ready to extend with advanced AI features</li>
-  </ul>
-
-  <a href="https://github.com/Cengiz930/FrutechAI/archive/refs/heads/main.zip" download>
-    <button>Download Frutech AI (ZIP)</button>
-  </a>
-
-  <div class="warning">
-    <strong>Note:</strong> Some antivirus software may flag new software like FruitOS or Frutech AI as suspicious (false positive). This does not mean the software is harmful.
-  </div>
-
-  <div class="antivirus-guides">
-    <h2>How to Temporarily Disable and Re-enable Antivirus</h2>
     <h3>Windows Defender</h3>
-    <ul><li>Open Windows Security → Virus & threat protection → Manage settings → Turn off real-time protection</li></ul>
+    <p>1. Open <em>Windows Security</em>.</p>
+    <p>2. Go to <em>Virus & threat protection</em>.</p>
+    <p>3. Click <em>Manage settings</em> under Virus & threat protection settings.</p>
+    <p>4. Turn off <em>Real-time protection</em> to temporarily disable.</p>
+    <p>5. Turn it back on when done to protect your PC.</p>
+
     <h3>Avast</h3>
-    <ul><li>Right-click system tray icon → Avast shields control → Disable</li></ul>
+    <p>1. Right-click the Avast icon in the system tray.</p>
+    <p>2. Choose <em>Avast shields control</em>.</p>
+    <p>3. Select duration to disable shields temporarily.</p>
+    <p>4. Re-enable shields the same way after installation.</p>
+
     <h3>AVG</h3>
-    <ul><li>Right-click system tray icon → Disable protection</li></ul>
+    <p>1. Right-click the AVG icon in the taskbar.</p>
+    <p>2. Click <em>Disable protection</em>.</p>
+    <p>3. Enable protection after installing the software.</p>
+
     <h3>Norton</h3>
-    <ul><li>Open Norton → Settings → Turn off Auto-Protect</li></ul>
+    <p>1. Open Norton Security dashboard.</p>
+    <p>2. Navigate to <em>Settings</em>.</p>
+    <p>3. Turn off <em>Auto-Protect</em> temporarily.</p>
+    <p>4. Turn it back on after installation.</p>
+
     <h3>McAfee</h3>
-    <ul><li>Open McAfee → Real-Time Scanning → Turn off</li></ul>
+    <p>1. Open McAfee console.</p>
+    <p>2. Go to <em>Real-time Scanning</em>.</p>
+    <p>3. Turn off scanning temporarily.</p>
+    <p>4. Enable scanning back after setup.</p>
+
     <h3>Bitdefender</h3>
-    <ul><li>Open dashboard → Protection → Disable shield</li></ul>
-  </div>
+    <p>1. Open Bitdefender dashboard.</p>
+    <p>2. Click <em>Protection</em> &gt; <em>Shield</em>.</p>
+    <p>3. Turn off shield temporarily.</p>
+    <p>4. Turn on shield after installation completes.</p>
+  </section>
 
-  <h2>👥 Development Team</h2>
-  <ul>
-    <li>Cengiz Kara – Lead Developer & Project Manager (Designs the architecture, writes main code, manages the project direction.)</li>
-    <li>Ayaz Kara – Development Assistant (Supports coding and feature development.)</li>
-    <li>Eymen Bayıroğlu – Concept Advisor (Provides ideas and feedback for the project.)</li>
-    <li>Liam Bennett – Basic Command Helper (Helps design and test basic terminal commands.)</li>
-    <li>Noah Brooks – Simple File Operations (Works on file-related functionalities and operations.)</li>
-    <li>James Thornton – Basic UI Support (Assists with creating and improving the user interface.)</li>
-    <li>Mason Reed – Testing Assistant (Tests features, finds bugs, and ensures stability.)</li>
-    <li>Lucas Grant – Small Performance Tweaks (Focuses on optimizing performance and making the system faster.)</li>
-  </ul>
+  <!-- Development Team -->
+  <section>
+    <h2>👥 Meet Our Development Team</h2>
+    <div class="team">
+      <div class="team-member">
+        <strong>Cengiz Kara</strong> – Lead Developer & Project Manager<br />
+        <small>Designs overall architecture, leads the team, and ensures project goals are met.</small>
+      </div>
+      <div class="team-member">
+        <strong>Ayaz Kara</strong> – Development Assistant<br />
+        <small>Supports coding and feature development, fixes bugs, and improves system stability.</small>
+      </div>
+      <div class="team-member">
+        <strong>Eymen Bayıroğlu</strong> – Concept Advisor<br />
+        <small>Provides innovative ideas, creative feedback, and helps shape project vision.</small>
+      </div>
+      <div class="team-member">
+        <strong>Liam Bennett</strong> – Basic Command Helper<br />
+        <small>Develops and maintains basic terminal commands and user interface commands.</small>
+      </div>
+      <div class="team-member">
+        <strong>Noah Brooks</strong> – Simple File Operations<br />
+        <small>Manages file handling features including creation, deletion, and navigation.</small>
+      </div>
+      <div class="team-member">
+        <strong>James Thornton</strong> – Basic UI Support<br />
+        <small>Improves user interface design and user experience for smoother operation.</small>
+      </div>
+      <div class="team-member">
+        <strong>Mason Reed</strong> – Testing Assistant<br />
+        <small>Conducts feature testing, bug reporting, and ensures software quality.</small>
+      </div>
+      <div class="team-member">
+        <strong>Lucas Grant</strong> – Small Performance Tweaks<br />
+        <small>Optimizes system speed, reduces resource usage, and improves responsiveness.</small>
+      </div>
+    </div>
+  </section>
 
-  <div class="footer">
-    Created by Cengiz Kara
-  </div>
+</main>
+
+<footer>
+  Made with by Cengiz Kara © Frutech Systems
+</footer>
 
 </body>
 </html>
